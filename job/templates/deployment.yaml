@@ -7,14 +7,15 @@ metadata:
 spec:
   template:
     spec:
+      shareProcessNamespace: true
       restartPolicy: OnFailure
       containers:
       - name: endlesssidecar
         image: fedora:32
         command: ["/bin/bash"]
-        args: ["-c", "sleep infinity"]
+        args: ["-c", "sleep infinity; echo 'stopping now!'"]
       - name: foojob
-        image: fedora:32
+        image: surajd/fedora32-pgrep
         command: ["/bin/bash"]
         args: ["/scripts-dir/run.sh"]
         volumeMounts:

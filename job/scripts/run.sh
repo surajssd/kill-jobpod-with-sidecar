@@ -6,3 +6,6 @@ for num in $(seq 10 -1 1); do
 done
 
 echo "And it's a lift off!"
+
+pkill sleep
+true
