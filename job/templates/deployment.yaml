@@ -9,6 +9,10 @@ spec:
     spec:
       restartPolicy: OnFailure
       containers:
+      - name: endlesssidecar
+        image: fedora:32
+        command: ["/bin/bash"]
+        args: ["-c", "sleep infinity"]
       - name: foojob
         image: fedora:32
         command: ["/bin/bash"]
